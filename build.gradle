@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation('org.springframework.boot:spring-boot-starter')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+
+    implementation('io.github.resilience4j:resilience4j-circuitbreaker:1.7.0')
+    implementation('io.github.resilience4j:resilience4j-spring-boot2:1.7.0')
+    implementation('org.springframework.boot:spring-boot-starter-aop')
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+
+    implementation('io.projectreactor:reactor-core:3.3.10.RELEASE')
+    implementation('io.projectreactor.addons:reactor-extra:3.3.2.RELEASE')
+
+    implementation('commons-io:commons-io:2.5')
+    implementation('org.apache.commons:commons-text:1.9')
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
